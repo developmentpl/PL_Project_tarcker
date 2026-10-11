@@ -1,0 +1,28 @@
+[Unit]
+Description=Dev Project Tracker (Node.js)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/dev-tracker
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+
+# --- App configuration (edit these) ---
+Environment=PORT=3000
+Environment=ADMIN_USER=admin
+# CHANGE THIS to a strong password before starting the service:
+Environment=ADMIN_PASS=CHANGE_ME_TO_A_STRONG_PASSWORD
+# Silence the harmless "ExperimentalWarning" for the built-in SQLite module:
+Environment=NODE_OPTIONS=--no-warnings
+
+# --- Light hardening ---
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=false
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

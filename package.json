@@ -1,0 +1,15 @@
+{
+  "name": "dev-project-tracker",
+  "version": "1.0.0",
+  "description": "Application development project tracker with dashboard, admin panel and category-wise analytics. Zero external dependencies — uses Node's built-in SQLite and HTTP server.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
